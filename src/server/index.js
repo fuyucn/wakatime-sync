@@ -67,14 +67,16 @@ const sync7Days = function() {
     )
   }
   weekOfDate = weekOfDate.reverse()
+
   const waitFor = delay => new Promise(resolve => setTimeout(resolve, delay))
+
   for (var idx in weekOfDate) {
     ;(function(idx) {
       setTimeout(function() {
         syncWakaTimeToGistwithDate(config.syncGistId, weekOfDate[idx])
-      }, idx * 2000)
+      }, idx * 3000)
     })(idx)
   }
 }
 
-// sync7Days()
+sync7Days()
